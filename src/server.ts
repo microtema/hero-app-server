@@ -1,13 +1,12 @@
+import {default as appolloServer} from './apollo.server';
 import app from './app';
+
+appolloServer.applyMiddleware({app});
 
 const port = 5000;
 
-app.listen(port, (err) => {
+app.listen(port, () => {
 
-    if (err) {
+    console.log(`server is listening on http://localhost:${port} and graphqlPath: ${appolloServer.graphqlPath}`);
 
-        return console.error(err);
-    }
-
-    return console.log(`server is listening on ${port}`);
 });
