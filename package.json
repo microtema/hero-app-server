@@ -1,0 +1,33 @@
+{
+  "name": "hero-app-server",
+  "version": "1.0.0",
+  "description": "Backend for hero-app",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist || true && rm -rf coverage || true",
+    "test": "jest",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --fix",
+    "build": "tsc",
+    "start": "npm run build && node dist/server.js"
+  },
+  "keywords": [
+    "NodeJs",
+    "TS"
+  ],
+  "author": "microtema@web.de",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^10.12.18",
+    "jest": "^24.8.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
