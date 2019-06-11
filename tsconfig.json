@@ -8,7 +8,7 @@
     "outDir": "dist",
     "typeRoots": [
       "node_modules/@types",
-      "@types"
+      "typings"
     ]
   },
   "lib": [
