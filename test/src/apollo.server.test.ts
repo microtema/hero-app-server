@@ -5,6 +5,8 @@ import BookService from '../../src/book/BookService';
 describe('Test apollo server', () => {
 
     const authorService = {
+        createAuthor: jest.fn() as any,
+        deleteAuthor: jest.fn() as any,
         getAuthor: jest.fn((id) => ({id})) as any,
         getAuthors: jest.fn((name) => ({name})) as any,
     } as AuthorService;
@@ -15,6 +17,8 @@ describe('Test apollo server', () => {
 
     const sut = new ApolloServer(authorService, bookService);
 
+    const context = sut.config.context({req: {}});
+
     it('It should be defined', () => {
 
         expect(sut).toBeDefined();
@@ -22,16 +26,16 @@ describe('Test apollo server', () => {
 
     it('config.context should return req object', () => {
 
-        const context = sut.config.context as any;
+        const contextFn = sut.config.context as any;
 
-        const actual = context({foo: {}, req: {params: {foo: true}}});
+        const actual = contextFn({foo: {}, req: {params: {foo: true}}});
 
-        expect(actual).toMatchSnapshot();
+        expect(context).toMatchSnapshot();
     });
 
     it('resolvers.Query.author', () => {
 
-        const actual = sut.resolvers.Query.author(null, {id: '1000'}, {req: {}}, null);
+        const actual = sut.resolvers.Query.author(null, {id: '1000'}, context, null);
 
         expect(actual).toMatchSnapshot();
 
@@ -40,7 +44,7 @@ describe('Test apollo server', () => {
 
     it('resolvers.Query.authors', () => {
 
-        const actual = sut.resolvers.Query.authors(null, {name: 'lorem'}, {req: {}}, null);
+        const actual = sut.resolvers.Query.authors(null, {name: 'lorem'}, context, null);
 
         expect(actual).toMatchSnapshot();
 
@@ -49,7 +53,7 @@ describe('Test apollo server', () => {
 
     it('resolvers.Query.book', () => {
 
-        const actual = sut.resolvers.Query.book(null, {id: '2000'}, {req: {}}, null);
+        const actual = sut.resolvers.Query.book(null, {id: '2000'}, context, null);
 
         expect(actual).toMatchSnapshot();
 
@@ -58,11 +62,29 @@ describe('Test apollo server', () => {
 
     it('resolvers.Query.books', () => {
 
-        const actual = sut.resolvers.Query.books(null, {title: 'AWS'}, {req: {}}, null);
+        const actual = sut.resolvers.Query.books(null, {title: 'AWS'}, context, null);
 
         expect(actual).toMatchSnapshot();
 
         expect(bookService.getBooks).toBeCalledWith({title: 'AWS'});
+    });
+
+    it('resolvers.Mutation.createAuthor', () => {
+
+        const actual = sut.resolvers.Mutation.createAuthor(null, {name: 'Foo'}, context, null);
+
+        expect(actual).toMatchSnapshot();
+
+        expect(authorService.createAuthor).toBeCalledWith({name: 'Foo'});
+    });
+
+    it('resolvers.Mutation.deleteAuthor', () => {
+
+        const actual = sut.resolvers.Mutation.deleteAuthor(null, {id: '123456'}, context, null);
+
+        expect(actual).toMatchSnapshot();
+
+        expect(authorService.deleteAuthor).toBeCalledWith('123456');
     });
 
     it('typeDefs', () => {

@@ -6,36 +6,53 @@ import BookService from './book/BookService';
 @Singleton
 export default class ApolloServer {
 
-    private static instance: ApolloServer;
     public readonly server: ApolloServerExpress;
 
     public readonly resolvers = {
         Query: {
-            author(parent, {id}, {req}, info) {
+            author(parent, {id}, {authorService}, info) {
 
-                return ApolloServer.instance.authorService.getAuthor(id);
+                return authorService.getAuthor(id);
             },
-            authors(parent, {name}, {req}, info) {
+            authors(parent, {name}, {authorService}, info) {
 
-                return ApolloServer.instance.authorService.getAuthors({name});
+                return authorService.getAuthors({name});
             },
-            book(parent, {id}, {req}, info) {
+            book(parent, {id}, {bookService}, info) {
 
-                return ApolloServer.instance.bookService.getBook(id);
+                return bookService.getBook(id);
             },
-            books(parent, {title}, {req}, info) {
+            books(parent, {title}, {bookService}, info) {
 
-                return ApolloServer.instance.bookService.getBooks({title});
+                return bookService.getBooks({title});
+            },
+        },
+
+        Mutation: {
+            createAuthor(parent, {name}, {authorService}, info) {
+
+                return authorService.createAuthor({name});
+            },
+
+            deleteAuthor(parent, {id}, {authorService}, info) {
+
+                return authorService.deleteAuthor(id);
             },
         },
     };
 
+    // Create GPL Schema
     public readonly typeDefs = gql`
         type Query {
             author(id: ID): Author
             authors(name: String): [Author]
             book (id: ID): Book
             books (title: String): [Book]
+        }
+
+        type Mutation {
+            createAuthor(name: String): Author
+            deleteAuthor(id: String): Boolean
         }
 
         type Book {
@@ -52,7 +69,11 @@ export default class ApolloServer {
     `;
 
     public readonly config = {
-        context: ({req}) => ({req}), // pass in the request to allow for authorization
+        context: ({req}) => ({
+            authorService: this.authorService,
+            bookService: this.bookService,
+            req,
+        }), // pass in the request and services to keep resolvers cleaner
         resolvers: this.resolvers,
         typeDefs: this.typeDefs,
     };
@@ -60,8 +81,5 @@ export default class ApolloServer {
     constructor(@Inject private authorService: AuthorService, @Inject private bookService: BookService) {
 
         this.server = new ApolloServerExpress(this.config);
-
-        // NOTE This is important on resolvers, since the scope of Query functions is not this.
-        ApolloServer.instance = this;
     }
 }

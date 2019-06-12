@@ -2,13 +2,23 @@
 
 exports[`Test apollo server config.context should return req object 1`] = `
 Object {
-  "req": Object {
-    "params": Object {
-      "foo": true,
-    },
+  "authorService": Object {
+    "createAuthor": [MockFunction],
+    "deleteAuthor": [MockFunction],
+    "getAuthor": [MockFunction],
+    "getAuthors": [MockFunction],
   },
+  "bookService": Object {
+    "getBook": [MockFunction],
+    "getBooks": [MockFunction],
+  },
+  "req": Object {},
 }
 `;
+
+exports[`Test apollo server resolvers.Mutation.createAuthor 1`] = `undefined`;
+
+exports[`Test apollo server resolvers.Mutation.deleteAuthor 1`] = `undefined`;
 
 exports[`Test apollo server resolvers.Query.author 1`] = `
 Object {
@@ -204,6 +214,88 @@ Object {
       "directives": Array [],
       "fields": Array [
         Object {
+          "arguments": Array [
+            Object {
+              "defaultValue": undefined,
+              "description": undefined,
+              "directives": Array [],
+              "kind": "InputValueDefinition",
+              "name": Object {
+                "kind": "Name",
+                "value": "name",
+              },
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "String",
+                },
+              },
+            },
+          ],
+          "description": undefined,
+          "directives": Array [],
+          "kind": "FieldDefinition",
+          "name": Object {
+            "kind": "Name",
+            "value": "createAuthor",
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "name": Object {
+              "kind": "Name",
+              "value": "Author",
+            },
+          },
+        },
+        Object {
+          "arguments": Array [
+            Object {
+              "defaultValue": undefined,
+              "description": undefined,
+              "directives": Array [],
+              "kind": "InputValueDefinition",
+              "name": Object {
+                "kind": "Name",
+                "value": "id",
+              },
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "String",
+                },
+              },
+            },
+          ],
+          "description": undefined,
+          "directives": Array [],
+          "kind": "FieldDefinition",
+          "name": Object {
+            "kind": "Name",
+            "value": "deleteAuthor",
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "name": Object {
+              "kind": "Name",
+              "value": "Boolean",
+            },
+          },
+        },
+      ],
+      "interfaces": Array [],
+      "kind": "ObjectTypeDefinition",
+      "name": Object {
+        "kind": "Name",
+        "value": "Mutation",
+      },
+    },
+    Object {
+      "description": undefined,
+      "directives": Array [],
+      "fields": Array [
+        Object {
           "arguments": Array [],
           "description": undefined,
           "directives": Array [],
@@ -331,7 +423,7 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 395,
+    "end": 523,
     "start": 0,
   },
 }

@@ -21,4 +21,24 @@ export default class AuthorService {
 
         return this.authors.find((it) => it.id === id);
     }
+
+    public createAuthor(setting: any): Author {
+
+        const author = this.authorBuilder.min();
+        author.name = setting.name;
+        author.books = [];
+
+        this.authors.push(author);
+
+        return author;
+    }
+
+    public deleteAuthor(id: string): boolean {
+
+        const size = this.authors.length;
+
+        this.authors = this.authors.filter((it) => it.id !== id);
+
+        return size > this.authors.length;
+    }
 }
