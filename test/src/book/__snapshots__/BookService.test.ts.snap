@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test AuthorService getBook by id should match 1`] = `
+Object {
+  "id": "1000",
+  "title": "AWS",
+}
+`;
+
+exports[`Test AuthorService getBook by id should not match 1`] = `undefined`;
+
+exports[`Test AuthorService getBooks by title should  not match 1`] = `Array []`;
+
+exports[`Test AuthorService getBooks by title should match 1`] = `
+Array [
+  Object {
+    "id": "1000",
+    "title": "AWS",
+  },
+]
+`;

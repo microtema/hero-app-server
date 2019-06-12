@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist || true && rm -rf coverage || true",
+    "clearCache": "jest --clearCache",
     "test": "jest",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --fix",
+    "lint": "tslint -c tslint.json '{src,test}/**/*.{ts,tsx}' --fix",
     "build": "tsc",
     "start": "npm run build && node dist/server.js"
   },
@@ -23,9 +24,11 @@
     "@types/node": "^10.12.18",
     "apollo-server-express": "^2.6.2",
     "cors": "^2.8.5",
+    "faker": "^4.1.0",
     "graphql": "^14.3.1",
     "graphql-tools": "^4.0.4",
     "jest": "^24.8.0",
+    "lodash": "^4.17.11",
     "qs-middleware": "^1.0.3",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
@@ -34,6 +37,8 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "model-builder-ts": "^2.0.0",
+    "typescript-ioc": "^1.2.5"
   }
 }

@@ -1,12 +1,25 @@
-import {default as appolloServer} from './apollo.server';
+import {Inject, Singleton} from 'typescript-ioc';
+import ApolloServer from './apollo.server';
 import app from './app';
 
-appolloServer.applyMiddleware({app});
+@Singleton
+class Server {
 
-const port = 5000;
+    @Inject
+    private apolloServer: ApolloServer;
 
-app.listen(port, () => {
+    constructor() {
 
-    console.log(`server is listening on http://localhost:${port} and graphqlPath: ${appolloServer.graphqlPath}`);
+        const port = 4000;
+        const graphqlPath = this.apolloServer.server.graphqlPath;
 
-});
+        this.apolloServer.server.applyMiddleware({app});
+
+        app.listen({port}, () => {
+
+            console.log(`Server is listening on http://localhost:${port} and graphqlPath: ${graphqlPath}`);
+        });
+    }
+}
+
+export default new Server();
