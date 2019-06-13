@@ -9,10 +9,14 @@ describe('Test apollo server', () => {
         deleteAuthor: jest.fn() as any,
         getAuthor: jest.fn((id) => ({id})) as any,
         getAuthors: jest.fn((name) => ({name})) as any,
+        updateAuthor: jest.fn() as any,
     } as AuthorService;
     const bookService = {
+        createBook: jest.fn((title) => ({title})) as any,
+        deleteBook: jest.fn((title) => ({title})) as any,
         getBook: jest.fn((id) => ({id})) as any,
         getBooks: jest.fn((title) => ({title})) as any,
+        updateBook: jest.fn((title) => ({title})) as any,
     } as BookService;
 
     const sut = new ApolloServer(authorService, bookService);
@@ -78,6 +82,15 @@ describe('Test apollo server', () => {
         expect(authorService.createAuthor).toBeCalledWith({name: 'Foo'});
     });
 
+    it('resolvers.Mutation.updateAuthor', () => {
+
+        const actual = sut.resolvers.Mutation.updateAuthor(null, {id: '1000', name: 'Foo'}, context, null);
+
+        expect(actual).toMatchSnapshot();
+
+        expect(authorService.updateAuthor).toBeCalledWith({id: '1000', name: 'Foo'});
+    });
+
     it('resolvers.Mutation.deleteAuthor', () => {
 
         const actual = sut.resolvers.Mutation.deleteAuthor(null, {id: '123456'}, context, null);
@@ -85,6 +98,33 @@ describe('Test apollo server', () => {
         expect(actual).toMatchSnapshot();
 
         expect(authorService.deleteAuthor).toBeCalledWith('123456');
+    });
+
+    it('resolvers.Mutation.createBook', () => {
+
+        const actual = sut.resolvers.Mutation.createBook(null, {title: 'Foo', authorId: '1000'}, context, null);
+
+        expect(actual).toMatchSnapshot();
+
+        expect(bookService.createBook).toBeCalledWith({title: 'Foo', authorId: '1000'});
+    });
+
+    it('resolvers.Mutation.updateBook', () => {
+
+        const actual = sut.resolvers.Mutation.updateBook(null, {id: '1000', title: 'Foo'}, context, null);
+
+        expect(actual).toMatchSnapshot();
+
+        expect(bookService.updateBook).toBeCalledWith({id: '1000', title: 'Foo'});
+    });
+
+    it('resolvers.Mutation.deleteBook', () => {
+
+        const actual = sut.resolvers.Mutation.deleteBook(null, {id: '123456'}, context, null);
+
+        expect(actual).toMatchSnapshot();
+
+        expect(bookService.deleteBook).toBeCalledWith('123456');
     });
 
     it('typeDefs', () => {

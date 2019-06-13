@@ -43,6 +43,21 @@ export default class ApolloServer {
 
                 return authorService.deleteAuthor(id);
             },
+
+            createBook(parent, {title, authorId}, {bookService}, info) {
+
+                return bookService.createBook({title, authorId});
+            },
+
+            updateBook(parent, {id, title}, {bookService}, info) {
+
+                return bookService.updateBook({id, title});
+            },
+
+            deleteBook(parent, {id}, {bookService}, info) {
+
+                return bookService.deleteBook(id);
+            },
         },
     };
 
@@ -59,6 +74,9 @@ export default class ApolloServer {
             createAuthor(name: String): Author
             updateAuthor(id: ID,name: String): Author
             deleteAuthor(id: ID): Boolean
+            createBook(title: String, authorId:ID): Book
+            updateBook(id: ID, title: String): Book
+            deleteBook(id: ID): Boolean
         }
 
         type Book {

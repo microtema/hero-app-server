@@ -3,7 +3,6 @@ import {Inject, Singleton} from 'typescript-ioc';
 import ApolloServer from './apollo.server';
 import app from './app';
 import {sequelize} from './database/models';
-
 // use the current environment at top level
 environment.env(true);
 

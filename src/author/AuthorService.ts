@@ -5,24 +5,24 @@ import AuthorRepository from './AuthorRepository';
 @Singleton
 export default class AuthorService {
 
-    constructor(@Inject private authorRepository: AuthorRepository) {
+    constructor(@Inject private repository: AuthorRepository) {
     }
 
     public getAuthors({name}: { name: string }): Promise<Author[]> {
 
-        return this.authorRepository.findAll(name);
+        return this.repository.findAll(name);
     }
 
     public getAuthor(id: string): Promise<Author> {
 
-        return this.authorRepository.findByPk(id);
+        return this.repository.findByPk(id);
     }
 
     public createAuthor(author: Author): Promise<Author> {
 
         author.books = [];
 
-        return this.authorRepository.save(author);
+        return this.repository.save(author);
     }
 
     /**
@@ -32,12 +32,12 @@ export default class AuthorService {
      */
     public updateAuthor(author: Author): Promise<Author> {
 
-        return this.authorRepository.update(author)
+        return this.repository.update(author)
             .then(() => this.getAuthor(author.id));
     }
 
     public deleteAuthor(id: string): Promise<boolean> {
 
-        return this.authorRepository.delete(id);
+        return this.repository.delete(id);
     }
 }

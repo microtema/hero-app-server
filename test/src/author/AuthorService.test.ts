@@ -1,16 +1,9 @@
-import {AuthorRepository, AuthorService} from '../../../src/author';
-import {BookBuilder} from '../../../src/book';
+import {AuthorService} from '../../../src/author';
+import BookBuilder from '../book/BookBuilder';
+import {default as authorRepository} from '../repository/MockCrudRepository';
 import AuthorBuilder from './AuthorBuilder';
 
 describe('Test AuthorService', () => {
-
-    const authorRepository = {
-        delete: jest.fn(() => Promise.resolve({})) as any,
-        findAll: jest.fn(() => Promise.resolve({})) as any,
-        findByPk: jest.fn(() => Promise.resolve({})) as any,
-        save: jest.fn(() => Promise.resolve({})) as any,
-        update: jest.fn(() => Promise.resolve({})) as any,
-    } as AuthorRepository;
 
     const sut = new AuthorService(authorRepository);
     const builder = new AuthorBuilder(new BookBuilder());

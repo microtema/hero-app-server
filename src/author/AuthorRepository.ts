@@ -1,17 +1,17 @@
 import {Op} from 'sequelize';
 import {Singleton} from 'typescript-ioc';
 import models from '../database/models';
+import CrudRepository from '../repository/CrudRepository';
 import {Author} from './Author';
 
 @Singleton
-export default class AuthorRepository {
+export default class AuthorRepository extends CrudRepository<Author> {
 
-    private readonly model: any;
-    private readonly containerModel: any;
-
-    constructor() {
-        this.model = models.AuthorModel;
-        this.containerModel = models.BookModel;
+    /**
+     * Provide AuthorModel
+     */
+    public model() {
+        return models.AuthorModel;
     }
 
     /**
@@ -22,7 +22,7 @@ export default class AuthorRepository {
     public findAll(name?: string) {
 
         const options = {
-            include: [this.containerModel],
+            include: [models.BookModel],
             where: {
                 name: {
                     [Op.iLike]: '%' + (name || ''),
@@ -30,7 +30,7 @@ export default class AuthorRepository {
             },
         };
 
-        return this.model.findAll(options);
+        return super.findAll(options);
     }
 
     /**
@@ -40,46 +40,6 @@ export default class AuthorRepository {
      */
     public findByPk(id: string) {
 
-        return this.model.findByPk(id, {include: [this.containerModel]});
-    }
-
-    /**
-     * Save new Author
-     *
-     * @param entity may not be null
-     */
-    public save(entity: Author) {
-
-        return this.model.create(entity);
-    }
-
-    /**
-     * Update new Author
-     *
-     * @param entity may not be null
-     */
-    public update(entity: Author) {
-
-        const properties = {
-            name: entity.name,
-        };
-
-        const predicate = {
-            where: {
-                id: entity.id,
-            },
-        };
-
-        return this.model.update(properties, predicate);
-    }
-
-    /**
-     * Delete Author by Id
-     *
-     * @param id may not be null
-     */
-    public delete(id: string) {
-
-        return this.model.destroy({where: {id}});
+        return super.findByPk(id, {include: [models.BookModel]});
     }
 }

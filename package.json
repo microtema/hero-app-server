@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist || true && rm -rf coverage || true",
     "clearCache": "jest --clearCache",
-    "test": "node test/setup.js && jest",
+    "test": "node test/setup.js && NODE_ENV=dev jest",
     "lint": "tslint -c tslint.json '{src,test}/**/*.{ts,tsx}' --fix",
     "build": "tsc",
     "start": "npm run build && NODE_ENV=dev node dist/server.js"

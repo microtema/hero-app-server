@@ -8,6 +8,7 @@ module.exports = {
     collectCoverageFrom: [
         "**/*.ts",
         "!**/server.ts",
+        "!**/CrudRepository.ts",
         "!**/index.ts",
         "!**/node_modules/**",
         "!**/test/**"

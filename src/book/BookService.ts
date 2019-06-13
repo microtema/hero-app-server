@@ -1,25 +1,41 @@
 import {Inject, Singleton} from 'typescript-ioc';
-import AuthorService from '../author/AuthorService';
 import {Book} from './Book';
+import BookRepository from './BookRepository';
 
 @Singleton
 export default class BookService {
 
-    constructor(@Inject private authorService: AuthorService) {
-    }
-
-    public getBook(id: string): Book {
-
-        return this.getAllBooks().find((it) => it.id === id);
+    constructor(@Inject private repository: BookRepository) {
     }
 
     public getBooks({title}: { title: string }): Book[] {
 
-        return this.getAllBooks().filter((it) => it.title.match(title));
+        return this.repository.findAll(title);
     }
 
-    private getAllBooks(): Book[] {
+    public getBook(id: string): Book {
 
-        return [];
+        return this.repository.findByPk(id);
+    }
+
+    public createBook(book: Book): Promise<Book> {
+
+        return this.repository.save(book).then((it) => this.getBook(it.id));
+    }
+
+    /**
+     * Note: Since the ...repository.update does not return nothing,
+     *       we need to return the updated entity
+     * @param book may not be null
+     */
+    public updateBook(book: Book): Promise<Book> {
+
+        return this.repository.update(book)
+            .then((it) => this.getBook(book.id));
+    }
+
+    public deleteBook(id: string): Promise<boolean> {
+
+        return this.repository.delete(id);
     }
 }

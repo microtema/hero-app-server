@@ -1,8 +1,8 @@
-import AuthorRepository from '../../../src/author/AuthorRepository';
+import BookRepository from '../../../src/book/BookRepository';
 
-describe('AuthorRepository API', () => {
+describe('BookRepository API', () => {
 
-    const sut = new AuthorRepository();
+    const sut = new BookRepository();
 
     it('It should be defined', () => {
 
@@ -12,13 +12,6 @@ describe('AuthorRepository API', () => {
     it('findAll', async () => {
 
         const actual = await sut.findAll('');
-
-        expect(actual).toBeDefined();
-    });
-
-    it('findAll without filter', async () => {
-
-        const actual = await sut.findAll();
 
         expect(actual).toBeDefined();
     });

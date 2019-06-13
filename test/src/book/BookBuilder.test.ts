@@ -1,4 +1,4 @@
-import {BookBuilder} from '../../../src/book';
+import BookBuilder from './BookBuilder';
 
 describe('Test BookBuilder', () => {
 

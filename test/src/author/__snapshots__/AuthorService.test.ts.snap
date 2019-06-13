@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Test AuthorService getAuthor by id should  not match 1`] = `undefined`;
-
-exports[`Test AuthorService getAuthor by id should match 1`] = `undefined`;
-
-exports[`Test AuthorService getAuthors by name should match 1`] = `undefined`;
-
-exports[`Test AuthorService getAuthors by name should not match 1`] = `undefined`;

@@ -1,7 +1,7 @@
 import faker from 'faker';
 import {ModelBuilder} from 'model-builder-ts';
 import {Singleton} from 'typescript-ioc';
-import {Book} from './Book';
+import {Book} from '../../../src/book/Book';
 
 @Singleton
 export default class BookBuilder extends ModelBuilder<Book> {

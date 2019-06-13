@@ -1,7 +1,9 @@
 import readdirSync from 'recursive-readdir-synchronous';
 import Model, {Sequelize} from 'sequelize';
 
-const sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USER, process.env.DATABASE_PWD,
+const {DATABASE, DATABASE_USER, DATABASE_PWD} = process.env;
+
+const sequelize = new Sequelize(DATABASE || 'graphql', DATABASE_USER || 'graphql', DATABASE_PWD || 'graphql',
     {
         dialect: 'postgres',
     },
@@ -24,9 +26,7 @@ const models = readdirSync('./src')
     }, {});
 
 const associate = (modelName) => {
-    if ('associate' in models[modelName]) {
-        models[modelName].associate(models);
-    }
+    models[modelName].associate(models);
 };
 
 Object.keys(models).forEach(associate);

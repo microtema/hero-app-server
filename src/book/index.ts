@@ -1,4 +1,4 @@
-import BookBuilder from './BookBuilder';
+import BookRepository from './BookRepository';
 import BookService from './BookService';
 
-export {BookBuilder, BookService};
+export {BookRepository, BookService};
