@@ -1,4 +1,4 @@
-import AuthorBuilder from './AuthorBuilder';
+import AuthorRepository from './AuthorRepository';
 import AuthorService from './AuthorService';
 
-export {AuthorBuilder, AuthorService};
+export {AuthorRepository, AuthorService};

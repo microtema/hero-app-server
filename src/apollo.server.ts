@@ -34,6 +34,11 @@ export default class ApolloServer {
                 return authorService.createAuthor({name});
             },
 
+            updateAuthor(parent, {id, name}, {authorService}, info) {
+
+                return authorService.updateAuthor({id, name});
+            },
+
             deleteAuthor(parent, {id}, {authorService}, info) {
 
                 return authorService.deleteAuthor(id);
@@ -52,7 +57,8 @@ export default class ApolloServer {
 
         type Mutation {
             createAuthor(name: String): Author
-            deleteAuthor(id: String): Boolean
+            updateAuthor(id: ID,name: String): Author
+            deleteAuthor(id: ID): Boolean
         }
 
         type Book {

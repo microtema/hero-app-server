@@ -1,44 +1,43 @@
 import {Inject, Singleton} from 'typescript-ioc';
 import {Author} from './Author';
-import AuthorBuilder from './AuthorBuilder';
+import AuthorRepository from './AuthorRepository';
 
 @Singleton
 export default class AuthorService {
 
-    private authors: Author[];
-
-    constructor(@Inject private authorBuilder: AuthorBuilder) {
-
-        this.authors = authorBuilder.list(10);
+    constructor(@Inject private authorRepository: AuthorRepository) {
     }
 
-    public getAuthors({name}: { name: string }): Author[] {
+    public getAuthors({name}: { name: string }): Promise<Author[]> {
 
-        return this.authors.filter((it) => it.name.match(name));
+        return this.authorRepository.findAll(name);
     }
 
-    public getAuthor(id: string): Author {
+    public getAuthor(id: string): Promise<Author> {
 
-        return this.authors.find((it) => it.id === id);
+        return this.authorRepository.findByPk(id);
     }
 
-    public createAuthor(setting: any): Author {
+    public createAuthor(author: Author): Promise<Author> {
 
-        const author = this.authorBuilder.min();
-        author.name = setting.name;
         author.books = [];
 
-        this.authors.push(author);
-
-        return author;
+        return this.authorRepository.save(author);
     }
 
-    public deleteAuthor(id: string): boolean {
+    /**
+     * Note: Since the ...repository.update does not return nothing,
+     *       we need to return the updated entity
+     * @param author may not be null
+     */
+    public updateAuthor(author: Author): Promise<Author> {
 
-        const size = this.authors.length;
+        return this.authorRepository.update(author)
+            .then(() => this.getAuthor(author.id));
+    }
 
-        this.authors = this.authors.filter((it) => it.id !== id);
+    public deleteAuthor(id: string): Promise<boolean> {
 
-        return size > this.authors.length;
+        return this.authorRepository.delete(id);
     }
 }

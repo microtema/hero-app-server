@@ -20,9 +20,6 @@ export default class BookService {
 
     private getAllBooks(): Book[] {
 
-        return this.authorService.getAuthors({name: ''})
-            .map((it) => it.books)
-            .flatMap((it) => it)
-            .filter((it) => !!it);
+        return [];
     }
 }

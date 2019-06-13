@@ -1,65 +1,87 @@
-import {AuthorBuilder, AuthorService} from '../../../src/author';
+import {AuthorRepository, AuthorService} from '../../../src/author';
+import {BookBuilder} from '../../../src/book';
+import AuthorBuilder from './AuthorBuilder';
 
 describe('Test AuthorService', () => {
 
-    const authorBuilder = {
-        list: jest.fn((size: number) => [{id: '1000', name: 'foo'}]) as any,
-        min: jest.fn(() => ({
-            id: '123456',
-        })) as any,
-    } as AuthorBuilder;
+    const authorRepository = {
+        delete: jest.fn(() => Promise.resolve({})) as any,
+        findAll: jest.fn(() => Promise.resolve({})) as any,
+        findByPk: jest.fn(() => Promise.resolve({})) as any,
+        save: jest.fn(() => Promise.resolve({})) as any,
+        update: jest.fn(() => Promise.resolve({})) as any,
+    } as AuthorRepository;
 
-    const sut = new AuthorService(authorBuilder);
+    const sut = new AuthorService(authorRepository);
+    const builder = new AuthorBuilder(new BookBuilder());
 
     it('It should be defined', () => {
 
         expect(sut).toBeDefined();
-
-        expect(authorBuilder.list).toBeCalledWith(10);
     });
 
-    it('getAuthors by name should match', () => {
+    it('getAuthors filter by name', () => {
 
-        expect(sut.getAuthors({name: 'foo'})).toMatchSnapshot();
+        // given
+        const {name} = builder.min();
+
+        // when
+        const promise = sut.getAuthors({name});
+
+        // then
+        expect(promise).toBeDefined();
+        expect(authorRepository.findAll).toBeCalledWith(name);
     });
 
-    it('getAuthors by name should not match', () => {
+    it('getAuthor by id', () => {
 
-        expect(sut.getAuthors({name: 'bar'})).toMatchSnapshot();
+        // given
+        const {id} = builder.min();
+
+        // when
+        const promise = sut.getAuthor(id);
+
+        // then
+        expect(promise).toBeDefined();
+        expect(authorRepository.findByPk).toBeCalledWith(id);
     });
 
-    it('getAuthor by id should match', () => {
+    it('deleteAuthor by id', () => {
 
-        expect(sut.getAuthor('1000')).toMatchSnapshot();
+        // given
+        const {id} = builder.min();
+
+        // when
+        const promise = sut.deleteAuthor(id);
+
+        // then
+        expect(promise).toBeDefined();
+        expect(authorRepository.delete).toBeCalledWith(id);
     });
 
-    it('getAuthor by id should  not match', () => {
+    it('createAuthor', () => {
 
-        expect(sut.getAuthor('0000')).toMatchSnapshot();
+        // given
+        const author = builder.min();
+
+        // when
+        const promise = sut.createAuthor(author);
+
+        // then
+        expect(promise).toBeDefined();
+        expect(authorRepository.save).toBeCalledWith(author);
     });
 
-    it('deleteAuthor by id should return false', () => {
+    it('updateAuthor', () => {
 
-        expect(sut.deleteAuthor('0000')).toEqual(false);
-    });
+        // given
+        const author = builder.min();
 
-    it('deleteAuthor by id should return false', () => {
+        // when
+        const promise = sut.updateAuthor(author);
 
-        expect(sut.deleteAuthor('1000')).toEqual(true);
-    });
-
-    it('createAuthor should return saved author with id', () => {
-
-        const authorsSize = sut.getAuthors({name: ''}).length;
-
-        const author = sut.createAuthor({name: 'foo'});
-
-        expect(author).toBeDefined();
-        expect(author.id).toEqual('123456');
-        expect(author.name).toEqual('foo');
-        expect(author.books).toEqual([]);
-
-        expect(sut.getAuthor('123456')).toBe(author);
-        expect(sut.getAuthors({name: ''}).length).toBe(authorsSize + 1);
+        // then
+        expect(promise).toBeDefined();
+        expect(authorRepository.update).toBeCalledWith(author);
     });
 });

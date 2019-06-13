@@ -2,20 +2,8 @@
 
 exports[`Test AuthorService getAuthor by id should  not match 1`] = `undefined`;
 
-exports[`Test AuthorService getAuthor by id should match 1`] = `
-Object {
-  "id": "1000",
-  "name": "foo",
-}
-`;
+exports[`Test AuthorService getAuthor by id should match 1`] = `undefined`;
 
-exports[`Test AuthorService getAuthors by name should match 1`] = `
-Array [
-  Object {
-    "id": "1000",
-    "name": "foo",
-  },
-]
-`;
+exports[`Test AuthorService getAuthors by name should match 1`] = `undefined`;
 
-exports[`Test AuthorService getAuthors by name should not match 1`] = `Array []`;
+exports[`Test AuthorService getAuthors by name should not match 1`] = `undefined`;

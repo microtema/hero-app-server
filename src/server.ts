@@ -1,6 +1,11 @@
+import environment from 'custom-env';
 import {Inject, Singleton} from 'typescript-ioc';
 import ApolloServer from './apollo.server';
 import app from './app';
+import {sequelize} from './database/models';
+
+// use the current environment at top level
+environment.env(true);
 
 @Singleton
 class Server {
@@ -15,9 +20,15 @@ class Server {
 
         this.apolloServer.server.applyMiddleware({app});
 
-        app.listen({port}, () => {
+        // NOTE:  Automatically sync all models
+        sequelize.sync().then(() => {
 
-            console.log(`Server is listening on http://localhost:${port} and graphqlPath: ${graphqlPath}`);
+            console.log('connect to to database successfully');
+
+            app.listen({port}, () => {
+
+                console.log(`Server is listening on http://localhost:${port} and graphqlPath: ${graphqlPath}`);
+            });
         });
     }
 }
