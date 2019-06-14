@@ -1,7 +1,7 @@
 import {Inject, Singleton} from 'typescript-ioc';
 import ApolloServer from './apollo.server';
 import app from './app';
-import {sequelize} from './database/models';
+import {sequelize} from './repository/models';
 
 @Singleton
 class Server {

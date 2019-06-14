@@ -13,7 +13,7 @@ export default class AuthorService {
         return this.repository.findAll(name);
     }
 
-    public getAuthor(id: string): Promise<Author> {
+    public getAuthor(id: number): Promise<Author> {
 
         return this.repository.findByPk(id);
     }

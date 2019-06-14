@@ -1,4 +1,6 @@
-abstract class CrudRepository<T extends any> {
+import {Entity} from './Entity';
+
+abstract class CrudRepository<T extends Entity> {
 
     /**
      * Find all Authors filtered by name
@@ -16,7 +18,7 @@ abstract class CrudRepository<T extends any> {
      * @param id may not be null
      * @param options may be null
      */
-    public findByPk(id: string, options?: any) {
+    public findByPk(id: number, options?: any) {
 
         options = options || {
             where: {

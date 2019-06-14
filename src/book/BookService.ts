@@ -13,7 +13,7 @@ export default class BookService {
         return this.repository.findAll(title);
     }
 
-    public getBook(id: string): Book {
+    public getBook(id: number): Book {
 
         return this.repository.findByPk(id);
     }

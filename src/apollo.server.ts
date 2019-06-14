@@ -10,51 +10,51 @@ export default class ApolloServer {
 
     public readonly resolvers = {
         Query: {
-            author(parent, {id}, {authorService}, info) {
+            author(parent, {id}, {authorService}) {
 
                 return authorService.getAuthor(id);
             },
-            authors(parent, {name}, {authorService}, info) {
+            authors(parent, {name}, {authorService}) {
 
                 return authorService.getAuthors({name});
             },
-            book(parent, {id}, {bookService}, info) {
+            book(parent, {id}, {bookService}) {
 
                 return bookService.getBook(id);
             },
-            books(parent, {title}, {bookService}, info) {
+            books(parent, {title}, {bookService}) {
 
                 return bookService.getBooks({title});
             },
         },
 
         Mutation: {
-            createAuthor(parent, {name}, {authorService}, info) {
+            createAuthor(parent, {name}, {authorService}) {
 
                 return authorService.createAuthor({name});
             },
 
-            updateAuthor(parent, {id, name}, {authorService}, info) {
+            updateAuthor(parent, {id, name}, {authorService}) {
 
                 return authorService.updateAuthor({id, name});
             },
 
-            deleteAuthor(parent, {id}, {authorService}, info) {
+            deleteAuthor(parent, {id}, {authorService}) {
 
                 return authorService.deleteAuthor(id);
             },
 
-            createBook(parent, {title, authorId}, {bookService}, info) {
+            createBook(parent, {title, authorId}, {bookService}) {
 
                 return bookService.createBook({title, authorId});
             },
 
-            updateBook(parent, {id, title}, {bookService}, info) {
+            updateBook(parent, {id, title}, {bookService}) {
 
                 return bookService.updateBook({id, title});
             },
 
-            deleteBook(parent, {id}, {bookService}, info) {
+            deleteBook(parent, {id}, {bookService}) {
 
                 return bookService.deleteBook(id);
             },
@@ -74,7 +74,7 @@ export default class ApolloServer {
             createAuthor(name: String): Author
             updateAuthor(id: ID,name: String): Author
             deleteAuthor(id: ID): Boolean
-            createBook(title: String, authorId:ID): Book
+            createBook(title: String, authorId: ID): Book
             updateBook(id: ID, title: String): Book
             deleteBook(id: ID): Boolean
         }

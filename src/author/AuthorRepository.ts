@@ -1,7 +1,7 @@
 import {Op} from 'sequelize';
 import {Singleton} from 'typescript-ioc';
-import models from '../database/models';
 import CrudRepository from '../repository/CrudRepository';
+import models from '../repository/models';
 import {Author} from './Author';
 
 @Singleton
@@ -38,7 +38,7 @@ export default class AuthorRepository extends CrudRepository<Author> {
      *
      * @param id may not be null
      */
-    public findByPk(id: string) {
+    public findByPk(id: number) {
 
         return super.findByPk(id, {include: [models.BookModel]});
     }
