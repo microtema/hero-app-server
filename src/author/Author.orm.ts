@@ -1,7 +1,10 @@
-const AuthorModel = (sequelize, DataTypes) => {
+import {EntityStatic} from '../repository/Entity';
+
+const AuthorModel = (sequelize, DataTypes): EntityStatic<number> => {
 
     const model = sequelize.define('author', {
         name: {
+            allowNull: false,
             type: DataTypes.STRING,
         },
     });
@@ -10,7 +13,7 @@ const AuthorModel = (sequelize, DataTypes) => {
         model.hasMany(models.BookModel, {onDelete: 'CASCADE'});
     };
 
-    return model;
+    return model as EntityStatic<number>;
 };
 
 export default AuthorModel;

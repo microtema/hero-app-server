@@ -1,6 +1,7 @@
-import {Entity} from './Entity';
+import {DestroyOptions, FindOptions, Identifier, UpdateOptions} from 'sequelize';
+import {Entity, EntityStatic} from './Entity';
 
-abstract class CrudRepository<T extends Entity<ID>, ID> {
+abstract class CrudRepository<T extends Entity<ID>, ID extends Identifier> {
 
     /**
      * Find all Authors filtered by name
@@ -24,7 +25,7 @@ abstract class CrudRepository<T extends Entity<ID>, ID> {
             where: {
                 id,
             },
-        };
+        } as FindOptions;
 
         return this.model().findByPk(id, options);
     }
@@ -50,7 +51,7 @@ abstract class CrudRepository<T extends Entity<ID>, ID> {
             where: {
                 id: entity.id,
             },
-        };
+        } as UpdateOptions;
 
         return this.model().update(entity, predicate);
     }
@@ -62,10 +63,10 @@ abstract class CrudRepository<T extends Entity<ID>, ID> {
      */
     public delete(id: ID) {
 
-        return this.model().destroy({where: {id}});
+        return this.model().destroy({where: {id}} as DestroyOptions);
     }
 
-    public abstract model();
+    public abstract model(): EntityStatic<ID>;
 }
 
 export default CrudRepository;

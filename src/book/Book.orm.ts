@@ -1,7 +1,10 @@
-const BookModel = (sequelize, DataTypes) => {
+import {EntityStatic} from '../repository/Entity';
+
+const BookModel = (sequelize, DataTypes): EntityStatic<number> => {
 
     const model = sequelize.define('book', {
         title: {
+            allowNull: false,
             type: DataTypes.STRING,
         },
     });
@@ -10,7 +13,7 @@ const BookModel = (sequelize, DataTypes) => {
         model.belongsTo(models.AuthorModel);
     };
 
-    return model;
+    return model as EntityStatic<number>;
 };
 
 export default BookModel;
