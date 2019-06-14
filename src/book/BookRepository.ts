@@ -5,7 +5,7 @@ import models from '../repository/models';
 import {Book} from './Book';
 
 @Singleton
-class BookRepository extends CrudRepository<Book> {
+class BookRepository extends CrudRepository<Book, number> {
 
     public model() {
         return models.BookModel;

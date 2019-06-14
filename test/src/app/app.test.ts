@@ -1,5 +1,5 @@
 import request from 'supertest';
-import {default as sut} from '../../src/app';
+import {default as sut} from '../../../src/app/app';
 
 describe('Test the root path', () => {
 

@@ -1,6 +1,6 @@
 import {Entity} from './Entity';
 
-abstract class CrudRepository<T extends Entity> {
+abstract class CrudRepository<T extends Entity<ID>, ID> {
 
     /**
      * Find all Authors filtered by name
@@ -18,7 +18,7 @@ abstract class CrudRepository<T extends Entity> {
      * @param id may not be null
      * @param options may be null
      */
-    public findByPk(id: number, options?: any) {
+    public findByPk(id: ID, options?: any) {
 
         options = options || {
             where: {
@@ -60,7 +60,7 @@ abstract class CrudRepository<T extends Entity> {
      *
      * @param id may not be null
      */
-    public delete(id: string) {
+    public delete(id: ID) {
 
         return this.model().destroy({where: {id}});
     }

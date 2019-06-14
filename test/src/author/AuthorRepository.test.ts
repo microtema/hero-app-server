@@ -25,7 +25,7 @@ describe('AuthorRepository API', () => {
 
     it('findByPk', async () => {
 
-        const actual = await sut.findByPk('1');
+        const actual = await sut.findByPk(1);
 
         expect(actual).toBeDefined();
     });

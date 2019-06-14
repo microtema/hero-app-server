@@ -16,14 +16,14 @@ describe('Test AuthorService', () => {
     it('getAuthors filter by name', () => {
 
         // given
-        const {name} = builder.min();
+        const author = builder.min();
 
         // when
-        const promise = sut.getAuthors({name});
+        const promise = sut.getAuthors(author);
 
         // then
         expect(promise).toBeDefined();
-        expect(authorRepository.findAll).toBeCalledWith(name);
+        expect(authorRepository.findAll).toBeCalledWith(author.name);
     });
 
     it('getAuthor by id', () => {

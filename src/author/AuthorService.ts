@@ -8,9 +8,9 @@ export default class AuthorService {
     constructor(@Inject private repository: AuthorRepository) {
     }
 
-    public getAuthors({name}: { name: string }): Promise<Author[]> {
+    public getAuthors(sample: Author): Promise<Author[]> {
 
-        return this.repository.findAll(name);
+        return this.repository.findAll(sample.name);
     }
 
     public getAuthor(id: number): Promise<Author> {
@@ -36,7 +36,7 @@ export default class AuthorService {
             .then(() => this.getAuthor(author.id));
     }
 
-    public deleteAuthor(id: string): Promise<boolean> {
+    public deleteAuthor(id: number): Promise<boolean> {
 
         return this.repository.delete(id);
     }

@@ -5,12 +5,13 @@ import models from '../repository/models';
 import {Author} from './Author';
 
 @Singleton
-export default class AuthorRepository extends CrudRepository<Author> {
+export default class AuthorRepository extends CrudRepository<Author, number> {
 
     /**
      * Provide AuthorModel
      */
     public model() {
+
         return models.AuthorModel;
     }
 

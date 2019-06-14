@@ -34,7 +34,7 @@ export default class BookService {
             .then((it) => this.getBook(book.id));
     }
 
-    public deleteBook(id: string): Promise<boolean> {
+    public deleteBook(id: number): Promise<boolean> {
 
         return this.repository.delete(id);
     }

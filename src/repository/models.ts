@@ -3,7 +3,7 @@ import Model, {Sequelize} from 'sequelize';
 
 const {DATABASE, DATABASE_USER, DATABASE_PWD} = process.env;
 
-const sequelize = new Sequelize(DATABASE || 'graphql', DATABASE_USER || 'graphql', DATABASE_PWD || 'graphql',
+const sequelize = new Sequelize(DATABASE, DATABASE_USER, DATABASE_PWD,
     {
         dialect: 'postgres',
     },
@@ -30,8 +30,6 @@ const associate = (modelName) => {
 };
 
 Object.keys(models).forEach(associate);
-
-console.log('Models', models);
 
 export {sequelize};
 

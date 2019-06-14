@@ -6,6 +6,6 @@ const FakeCrudRepository = {
     findByPk: jest.fn(() => Promise.resolve({})) as any,
     save: jest.fn(() => Promise.resolve({})) as any,
     update: jest.fn(() => Promise.resolve({})) as any,
-} as CrudRepository<any>;
+} as CrudRepository<any, any>;
 
 export default FakeCrudRepository;
