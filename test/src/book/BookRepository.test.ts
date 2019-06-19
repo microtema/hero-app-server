@@ -1,4 +1,4 @@
-import BookRepository from '../../../src/book/BookRepository';
+import BookRepository from '../../../src/book/Book.repository';
 
 describe('BookRepository API', () => {
 

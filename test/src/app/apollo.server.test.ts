@@ -1,7 +1,7 @@
 import {AddressService} from '../../../src/address';
 import ApolloServer from '../../../src/app/apollo.server';
 import AuthorService from '../../../src/author/AuthorService';
-import BookService from '../../../src/book/BookService';
+import BookService from '../../../src/book/Book.service';
 
 describe('Test apollo server', () => {
 

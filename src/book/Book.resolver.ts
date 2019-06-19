@@ -1,5 +1,5 @@
 import {Book} from './Book';
-import BookService from './BookService';
+import BookService from './Book.service';
 
 export default {
     Query: {

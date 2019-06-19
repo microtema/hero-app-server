@@ -1,4 +1,4 @@
-import BookRepository from './BookRepository';
-import BookService from './BookService';
+import BookRepository from './Book.repository';
+import BookService from './Book.service';
 
 export {BookRepository, BookService};

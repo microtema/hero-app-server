@@ -1,6 +1,6 @@
 import {Inject, Singleton} from 'typescript-ioc';
 import {Book} from './Book';
-import BookRepository from './BookRepository';
+import BookRepository from './Book.repository';
 
 @Singleton
 export default class BookService {
