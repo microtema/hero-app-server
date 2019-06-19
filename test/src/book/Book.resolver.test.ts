@@ -1,7 +1,7 @@
 import {BookService} from '../../../src/book';
 import {Book} from '../../../src/book/Book';
-import BookBuilder from '../book/BookBuilder';
 import sut from './../../../src/book/Book.resolver';
+import BookBuilder from './Book.builder';
 
 describe('Book.resolver', () => {
 

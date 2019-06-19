@@ -2,7 +2,7 @@ import faker from 'faker';
 import {ModelBuilder} from 'model-builder-ts';
 import {Inject, Singleton} from 'typescript-ioc';
 import {Author} from '../../../src/author/Author';
-import BookBuilder from '../book/BookBuilder';
+import BookBuilder from '../book/Book.builder';
 
 @Singleton
 export default class AuthorBuilder extends ModelBuilder<Author> {

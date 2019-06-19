@@ -1,4 +1,4 @@
-import AuthorRepository from '../../../src/author/AuthorRepository';
+import AuthorRepository from '../../../src/author/Author.repository';
 
 describe('AuthorRepository API', () => {
 

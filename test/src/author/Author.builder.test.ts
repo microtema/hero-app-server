@@ -1,5 +1,5 @@
-import BookBuilder from '../book/BookBuilder';
-import AuthorBuilder from './AuthorBuilder';
+import BookBuilder from '../book/Book.builder';
+import AuthorBuilder from './Author.builder';
 
 describe('Test AuthorBuilder', () => {
 

@@ -1,7 +1,7 @@
 import {Author, AuthorService} from '../../../src/author';
-import BookBuilder from '../book/BookBuilder';
+import BookBuilder from '../book/Book.builder';
 import sut from './../../../src/author/Author.resolver';
-import AuthorBuilder from './AuthorBuilder';
+import AuthorBuilder from './Author.builder';
 
 describe('Author.resolver', () => {
 

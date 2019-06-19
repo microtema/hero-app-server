@@ -1,6 +1,6 @@
 import {Inject, Singleton} from 'typescript-ioc';
 import {Author} from './Author';
-import AuthorRepository from './AuthorRepository';
+import AuthorRepository from './Author.repository';
 
 @Singleton
 export default class AuthorService {

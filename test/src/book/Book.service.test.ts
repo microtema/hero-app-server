@@ -1,6 +1,6 @@
 import {BookService} from '../../../src/book';
 import {default as authorRepository} from '../repository/MockCrudRepository';
-import BookBuilder from './BookBuilder';
+import BookBuilder from './Book.builder';
 
 describe('Test AuthorService', () => {
 

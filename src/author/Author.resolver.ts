@@ -1,5 +1,5 @@
 import {Author} from './Author';
-import AuthorService from './AuthorService';
+import AuthorService from './Author.service';
 
 export default {
     Query: {
