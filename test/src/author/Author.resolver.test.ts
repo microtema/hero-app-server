@@ -1,5 +1,4 @@
-import {AuthorService} from '../../../src/author';
-import {Author} from '../../../src/author/Author';
+import {Author, AuthorService} from '../../../src/author';
 import BookBuilder from '../book/BookBuilder';
 import sut from './../../../src/author/Author.resolver';
 import AuthorBuilder from './AuthorBuilder';

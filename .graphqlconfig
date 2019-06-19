@@ -1,0 +1,15 @@
+{
+  "name": "Hero App GraphQL Schema",
+  "schemaPath": "repository/schemas",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "http://localhost:4000/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

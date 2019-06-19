@@ -1,0 +1,1128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schemas Should match 1`] = `
+Array [
+  Object {
+    "definitions": Array [
+      Object {
+        "description": undefined,
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "_",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Boolean",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeDefinition",
+        "name": Object {
+          "kind": "Name",
+          "value": "Query",
+        },
+      },
+      Object {
+        "description": undefined,
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "_",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Boolean",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeDefinition",
+        "name": Object {
+          "kind": "Name",
+          "value": "Mutation",
+        },
+      },
+      Object {
+        "description": undefined,
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "_",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Boolean",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeDefinition",
+        "name": Object {
+          "kind": "Name",
+          "value": "Subscription",
+        },
+      },
+    ],
+    "kind": "Document",
+    "loc": Object {
+      "end": 137,
+      "start": 0,
+    },
+  },
+  Object {
+    "definitions": Array [
+      Object {
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "address",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Address",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "street",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "addresses",
+            },
+            "type": Object {
+              "kind": "ListType",
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "Address",
+                },
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeExtension",
+        "name": Object {
+          "kind": "Name",
+          "value": "Query",
+        },
+      },
+      Object {
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "street",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "zip",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "city",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "country",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "authorId",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "createAddress",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Address",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "name",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "updateAddress",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Address",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "deleteAddress",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Boolean",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeExtension",
+        "name": Object {
+          "kind": "Name",
+          "value": "Mutation",
+        },
+      },
+      Object {
+        "description": undefined,
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "id",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "ID",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "street",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "String",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "zip",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "String",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "city",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "String",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "country",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "String",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "author",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Author",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeDefinition",
+        "name": Object {
+          "kind": "Name",
+          "value": "Address",
+        },
+      },
+    ],
+    "kind": "Document",
+    "loc": Object {
+      "end": 488,
+      "start": 0,
+    },
+  },
+  Object {
+    "definitions": Array [
+      Object {
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "author",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Author",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "name",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "authors",
+            },
+            "type": Object {
+              "kind": "ListType",
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "Author",
+                },
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeExtension",
+        "name": Object {
+          "kind": "Name",
+          "value": "Query",
+        },
+      },
+      Object {
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "name",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "createAuthor",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Author",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "name",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "updateAuthor",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Author",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "deleteAuthor",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Boolean",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeExtension",
+        "name": Object {
+          "kind": "Name",
+          "value": "Mutation",
+        },
+      },
+      Object {
+        "description": undefined,
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "id",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "ID",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "name",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "String",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "books",
+            },
+            "type": Object {
+              "kind": "ListType",
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "Book",
+                },
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "addresses",
+            },
+            "type": Object {
+              "kind": "ListType",
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "Address",
+                },
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeDefinition",
+        "name": Object {
+          "kind": "Name",
+          "value": "Author",
+        },
+      },
+    ],
+    "kind": "Document",
+    "loc": Object {
+      "end": 379,
+      "start": 0,
+    },
+  },
+  Object {
+    "definitions": Array [
+      Object {
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "book",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Book",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "title",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "books",
+            },
+            "type": Object {
+              "kind": "ListType",
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "Book",
+                },
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeExtension",
+        "name": Object {
+          "kind": "Name",
+          "value": "Query",
+        },
+      },
+      Object {
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "title",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "authorId",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "createBook",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Book",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "title",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "String",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "updateBook",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Book",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [
+              Object {
+                "defaultValue": undefined,
+                "description": undefined,
+                "directives": Array [],
+                "kind": "InputValueDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "id",
+                },
+                "type": Object {
+                  "kind": "NamedType",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "ID",
+                  },
+                },
+              },
+            ],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "deleteBook",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Boolean",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeExtension",
+        "name": Object {
+          "kind": "Name",
+          "value": "Mutation",
+        },
+      },
+      Object {
+        "description": undefined,
+        "directives": Array [],
+        "fields": Array [
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "id",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "ID",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "title",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "String",
+              },
+            },
+          },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "author",
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "name": Object {
+                "kind": "Name",
+                "value": "Author",
+              },
+            },
+          },
+        ],
+        "interfaces": Array [],
+        "kind": "ObjectTypeDefinition",
+        "name": Object {
+          "kind": "Name",
+          "value": "Book",
+        },
+      },
+    ],
+    "kind": "Document",
+    "loc": Object {
+      "end": 352,
+      "start": 0,
+    },
+  },
+]
+`;

@@ -1,15 +1,15 @@
+import {AddressService} from '../../../src/address';
 import ApolloServer from '../../../src/app/apollo.server';
 import AuthorService from '../../../src/author/AuthorService';
 import BookService from '../../../src/book/BookService';
 
 describe('Test apollo server', () => {
 
-    const authorService = {
-    } as AuthorService;
-    const bookService = {
-    } as BookService;
+    const authorService = {} as AuthorService;
+    const bookService = {} as BookService;
+    const addressService = {} as AddressService;
 
-    const sut = new ApolloServer(authorService, bookService);
+    const sut = new ApolloServer(authorService, bookService, addressService);
 
     const context = sut.config.context({req: {}});
 
@@ -26,5 +26,6 @@ describe('Test apollo server', () => {
 
         expect(actual.authorService).toBe(authorService);
         expect(actual.bookService).toBe(bookService);
+        expect(actual.addressService).toBe(addressService);
     });
 });

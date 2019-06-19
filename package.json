@@ -4,10 +4,10 @@
   "description": "Backend for hero-app",
   "main": "dist/server.js",
   "scripts": {
-    "clearCache": "jest --clearCache",
+    "clear-cache": "jest --clearCache",
     "clean": "rm -rf dist || true && rm -rf coverage || true",
-    "pretest": "npm run clearCache",
-    "test": "DATABASE=postgres DATABASE_USER=postgres DATABASE_PWD=graphql jest",
+    "pretest": "npm run clear-cache",
+    "test": "DATABASE=graphql DATABASE_USER=graphql DATABASE_PWD=graphql jest",
     "lint": "tslint -c tslint.json '{src,test}/**/*.{ts,tsx}' --fix",
     "prebuild": "npm run lint",
     "build": "tsc",
@@ -37,6 +37,7 @@
     "@types/node": "^10.14.9",
     "@types/validator": "^10.11.1",
     "apollo-server-express": "^2.6.2",
+    "recursive-readdir-synchronous": "0.0.4",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "faker": "^4.1.0",
@@ -57,7 +58,6 @@
     "express": "^4.17.1",
     "model-builder-ts": "^2.0.0",
     "pg": "^7.11.0",
-    "recursive-readdir-synchronous": "0.0.4",
     "sequelize": "^5.8.9"
   }
 }

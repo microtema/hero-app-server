@@ -1,7 +1,8 @@
 import {ApolloServer as ApolloServerExpress} from 'apollo-server-express';
 import {Inject, Singleton} from 'typescript-ioc';
-import AuthorService from '../author/AuthorService';
-import BookService from '../book/BookService';
+import {AddressService} from '../address';
+import {AuthorService} from '../author';
+import {BookService} from '../book';
 import resolvers from '../repository/resolvers';
 import schemas from '../repository/schemas';
 
@@ -17,7 +18,9 @@ export default class ApolloServer {
         typeDefs: schemas,
     };
 
-    constructor(@Inject private authorService: AuthorService, @Inject private bookService: BookService) {
+    constructor(@Inject private authorService: AuthorService,
+                @Inject private bookService: BookService,
+                @Inject private addressService: AddressService) {
 
         this.server = new ApolloServerExpress(this.config);
     }
@@ -27,6 +30,7 @@ export default class ApolloServer {
      */
     private getContext({req}): any {
         return {
+            addressService: this.addressService,
             authorService: this.authorService,
             bookService: this.bookService,
             req,

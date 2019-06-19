@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Resolvers Should match 1`] = `
+Object {
+  "Mutation": Object {
+    "createAddress": [Function],
+    "createAuthor": [Function],
+    "createBook": [Function],
+    "deleteAddress": [Function],
+    "deleteAuthor": [Function],
+    "deleteBook": [Function],
+    "updateAddress": [Function],
+    "updateAuthor": [Function],
+    "updateBook": [Function],
+  },
+  "Query": Object {
+    "address": [Function],
+    "addresses": [Function],
+    "author": [Function],
+    "authors": [Function],
+    "book": [Function],
+    "books": [Function],
+  },
+}
+`;

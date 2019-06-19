@@ -2,17 +2,14 @@ import {Op} from 'sequelize';
 import {Singleton} from 'typescript-ioc';
 import CrudRepository from '../repository/CrudRepository';
 import models from '../repository/models';
-import {Author} from './Author';
+import {Address} from './Address';
 
 @Singleton
-export default class AuthorRepository extends CrudRepository<Author, number> {
+export default class AddressRepository extends CrudRepository<Address, number> {
 
-    /**
-     * Provide AuthorModel
-     */
     public model() {
 
-        return models.AuthorModel;
+        return models.AddressModel;
     }
 
     /**
@@ -23,9 +20,9 @@ export default class AuthorRepository extends CrudRepository<Author, number> {
     public findAll(name?: string) {
 
         const options = {
-            include: [models.BookModel, models.AddressModel],
+            include: [models.AuthorModel],
             where: {
-                name: {
+                street: {
                     [Op.iLike]: '%' + (name || ''),
                 },
             },
@@ -41,6 +38,7 @@ export default class AuthorRepository extends CrudRepository<Author, number> {
      */
     public findByPk(id: number) {
 
-        return super.findByPk(id, {include: [models.BookModel, models.AddressModel]});
+        return super.findByPk(id, {include: [models.AuthorModel]});
     }
+
 }

@@ -279,6 +279,26 @@ Array [
               },
             },
           },
+          Object {
+            "arguments": Array [],
+            "description": undefined,
+            "directives": Array [],
+            "kind": "FieldDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "addresses",
+            },
+            "type": Object {
+              "kind": "ListType",
+              "type": Object {
+                "kind": "NamedType",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "Address",
+                },
+              },
+            },
+          },
         ],
         "interfaces": Array [],
         "kind": "ObjectTypeDefinition",
@@ -290,7 +310,7 @@ Array [
     ],
     "kind": "Document",
     "loc": Object {
-      "end": 350,
+      "end": 379,
       "start": 0,
     },
   },
