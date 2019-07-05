@@ -9,9 +9,9 @@ const sequelize = new Sequelize(DATABASE, DATABASE_USER, DATABASE_PWD,
     },
 );
 
-const importModel = (it) => sequelize.import(it);
 const filterModel = (it) => it.match('.orm.ts');
 const cleanupModelPath = (it) => '..' + it.substring(it.indexOf('/src') + 4).replace('.ts', '');
+const importModel = (it) => sequelize.import(it);
 const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 // Note: Autowired models

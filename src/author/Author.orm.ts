@@ -9,9 +9,9 @@ const AuthorModel = (sequelize, DataTypes): EntityStatic<number> => {
         },
     });
 
-    model.associate = (models) => {
-        model.hasMany(models.BookModel, {onDelete: 'CASCADE'});
-        model.hasMany(models.AddressModel, {onDelete: 'CASCADE'});
+    model.associate = ({BookModel, AddressModel}) => {
+        model.hasMany(BookModel, {onDelete: 'CASCADE'});
+        model.hasMany(AddressModel, {onDelete: 'CASCADE'});
     };
 
     return model as EntityStatic<number>;

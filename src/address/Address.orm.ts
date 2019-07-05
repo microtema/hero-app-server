@@ -21,9 +21,9 @@ const AddressModel = (sequelize, DataTypes): EntityStatic<number> => {
         },
     });
 
-    model.associate = (models) => {
+    model.associate = ({AuthorModel}) => {
 
-        model.belongsTo(models.AuthorModel);
+        model.belongsTo(AuthorModel);
     };
 
     return model as EntityStatic<number>;

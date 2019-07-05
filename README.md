@@ -26,3 +26,4 @@ CREATE DATABASE graphql;
 
 ### Links
 * https://www.robinwieruch.de/graphql-apollo-server-tutorial/
+* https://docs.sequelizejs.com/manual/getting-started.html

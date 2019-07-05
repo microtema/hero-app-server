@@ -9,8 +9,8 @@ const BookModel = (sequelize, DataTypes): EntityStatic<number> => {
         },
     });
 
-    model.associate = (models) => {
-        model.belongsTo(models.AuthorModel);
+    model.associate = ({AuthorModel}) => {
+        model.belongsTo(AuthorModel);
     };
 
     return model as EntityStatic<number>;
