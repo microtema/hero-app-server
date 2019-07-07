@@ -1,5 +1,6 @@
 import {AddressService} from '../../../src/address';
 import ApolloServer from '../../../src/app/apollo.server';
+import AppProperties from '../../../src/app/App.properties';
 import AuthorService from '../../../src/author/Author.service';
 import BookService from '../../../src/book/Book.service';
 
@@ -8,8 +9,9 @@ describe('Test apollo server', () => {
     const authorService = {} as AuthorService;
     const bookService = {} as BookService;
     const addressService = {} as AddressService;
+    const appProperties = new AppProperties();
 
-    const sut = new ApolloServer(authorService, bookService, addressService);
+    const sut = new ApolloServer(authorService, bookService, addressService, appProperties);
 
     const context = sut.config.context({req: {}});
 

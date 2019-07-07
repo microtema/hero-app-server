@@ -8,6 +8,9 @@ module.exports = {
     collectCoverageFrom: [
         "**/*.ts",
         "!**/server.ts",
+        "!**/app.ts",
+        "!**/App.properties.ts",
+        "!**/apollo.server.ts",
         "!**/CrudRepository.ts",
         "!**/index.ts",
         "!**/node_modules/**",

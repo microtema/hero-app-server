@@ -9,6 +9,8 @@ const sequelize = new Sequelize(DATABASE, DATABASE_USER, DATABASE_PWD,
     },
 );
 
+console.log('Connected to database successfully');
+
 const filterModel = (it) => it.match('.orm.ts');
 const cleanupModelPath = (it) => '..' + it.substring(it.indexOf('/src') + 4).replace('.ts', '');
 const importModel = (it) => sequelize.import(it);
